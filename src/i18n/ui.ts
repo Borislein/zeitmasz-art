@@ -13,6 +13,7 @@ export const ui = {
     "theme.dark": "Dunkel",
     "rip.text": "Wir trauern um Sensational, der am 2. August 2026 verstorben ist.",
     "rip.linkText": "Lies Spectres Nachruf →",
+    "rip.details": "Zeitmasz war die letzte Booking-Agentur und das letzte Label Sensationals. Das gemeinsame Album mit Owldom wird in Kürze erscheinen. Ihr seid herzlich eingeladen, eure Gedanken zu teilen.",
   },
   en: {
     "nav.artists": "Artists",
@@ -26,6 +27,7 @@ export const ui = {
     "theme.dark": "Dark",
     "rip.text": "We mourn Sensational, who passed away on August 2, 2026.",
     "rip.linkText": "Read Spectre's tribute →",
+    "rip.details": "Zeitmasz was Sensational's last booking agency and label. The collaborative album with Owldom will be released shortly. You're welcome to share your thoughts.",
   },
 } as const;
 
