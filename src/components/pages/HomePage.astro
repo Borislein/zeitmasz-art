@@ -41,7 +41,7 @@ const altHref = lang === "de" ? "/en" : "/";
     </div>
     <div class="newsletter">
       <div id="mlb2-45042848" class="ml-form-embedContainer">
-        <form action="https://assets.mailerlite.com/jsonp/1402895/forms/196339618632697754/subscribe" method="post" target="_blank">
+        <form id="newsletter-form" action="https://assets.mailerlite.com/jsonp/1402895/forms/196339618632697754/subscribe" method="post">
           <h4 style="font-family: var(--ff-heading); font-size: 20px; color: var(--clr-fg); margin: 0 0 20px 0;">Newsletter</h4>
           <div style="display: flex; gap: 10px;">
             <input type="email" name="fields[email]" placeholder="Email" required style="flex: 1; padding: 10px; border: 1px solid var(--clr-border); border-radius: 4px; background: var(--clr-bg); color: var(--clr-fg);">
@@ -51,6 +51,20 @@ const altHref = lang === "de" ? "/en" : "/";
           <input type="hidden" name="anticsrf" value="true">
         </form>
       </div>
+      <script>
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+          e.preventDefault();
+          const form = this;
+          const email = form.querySelector('input[name="fields[email]"]');
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            mode: 'no-cors'
+          }).catch(() => {});
+          email.value = '';
+          alert('Thank you for subscribing!');
+        });
+      </script>
       <script src="https://groot.mailerlite.com/js/w/webforms.min.js" async></script>
     </div>
   </section>
