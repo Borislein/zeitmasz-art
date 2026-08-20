@@ -128,7 +128,7 @@ nav a {
 }
 
 .hero p {
-  font-size: 18px;
+  font-size: 22px;
   color: var(--clr-body-grey);
   max-width: 560px;
   line-height: 1.6;
@@ -156,7 +156,7 @@ nav a {
 }
 
 .rip p {
-  font-size: 18px;
+  font-size: 20px;
   color: var(--clr-body-grey);
   line-height: 1.6;
   max-width: 700px;
