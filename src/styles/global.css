@@ -151,25 +151,31 @@ nav a {
   text-transform: uppercase;
 }
 
-.rip {
+.rip-container {
   padding: 28px 64px;
   border-top: 1px solid var(--clr-border);
   border-bottom: 1px solid var(--clr-border);
 }
 
-.rip p {
+.rip-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 28px;
+}
+
+.rip-col p {
   font-size: 20px;
   color: var(--clr-body-grey);
   line-height: 1.6;
-  max-width: 700px;
   margin-bottom: 0;
 }
 
-.rip p:first-child {
+.rip-col p:first-child {
   margin-bottom: 20px;
 }
 
-.rip a {
+.rip-col a {
   display: block;
   margin-top: 6px;
   padding-left: 24px;
@@ -178,8 +184,13 @@ nav a {
   text-underline-offset: 2px;
 }
 
-.rip a:hover {
+.rip-col a:hover {
   color: var(--clr-medium-grey);
+}
+
+.newsletter {
+  padding: 0;
+  max-width: calc(50% - 32px);
 }
 
 section.releases {
