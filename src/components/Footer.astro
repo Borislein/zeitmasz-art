@@ -1,0 +1,14 @@
+---
+import { t, type Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<footer>
+  <div class="small">{t(lang, "footer.tagline")}</div>
+  <div class="small">zeitmasz.art</div>
+</footer>

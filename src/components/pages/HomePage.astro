@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../Header.astro";
+import Footer from "../Footer.astro";
+import { releases } from "../../data/releases";
+import { t, path, type Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const altHref = lang === "de" ? "/en" : "/";
+---
+
+<BaseLayout lang={lang}>
+  <Header lang={lang} altHref={altHref} />
+
+  <div class="hero">
+    <h1>Zeitmasz</h1>
+    <p>{t(lang, "hero.tagline")}</p>
+  </div>
+
+  <section class="rip">
+    <p>
+      {t(lang, "rip.text")}{" "}
+      <a
+        href="https://medium.com/@shfernandojr/sensational-a02f9d62af69"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t(lang, "rip.linkText")}
+      </a>
+    </p>
+  </section>
+
+  <section class="releases" id="katalog">
+    <h2>{t(lang, "katalog.heading")}</h2>
+    <div class="grid">
+      {
+        releases.map((release) => {
+          const Tag = release.slug ? "a" : "div";
+          const outlineLine = release.outlineLine ?? 1;
+          return (
+            <Tag
+              class="card"
+              href={release.slug ? path(lang, `/releases/${release.slug}`) : undefined}
+            >
+              <div class="cat-num">{release.catNum}</div>
+              <h3>
+                {release.title.split("\n").map((line, i) => (
+                  <>
+                    {i > 0 && <br />}
+                    {i === outlineLine ? <span class="outline">{line}</span> : line}
+                  </>
+                ))}
+              </h3>
+              {release.info && <p>{release.info}</p>}
+            </Tag>
+          );
+        })
+      }
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</BaseLayout>

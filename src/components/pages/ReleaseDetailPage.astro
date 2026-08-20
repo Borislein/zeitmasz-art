@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../Header.astro";
+import Footer from "../Footer.astro";
+import { path, type Lang } from "../../i18n/ui";
+import type { Release } from "../../data/releases";
+
+interface Props {
+  lang: Lang;
+  release: Release;
+}
+
+const { lang, release } = Astro.props;
+const plainTitle = release.title.replace("\n", " ");
+const outlineLine = release.outlineLine ?? 1;
+const altHref = lang === "de" ? `/en/releases/${release.slug}` : `/releases/${release.slug}`;
+---
+
+<BaseLayout title={`${plainTitle} — Zeitmasz`} lang={lang}>
+  <Header lang={lang} altHref={altHref} />
+
+  <section class="release-detail">
+    <div class="cat-num">{release.catNum}</div>
+    <h1>
+      {release.title.split("\n").map((line, i) => (
+        <>
+          {i > 0 && <br />}
+          {i === outlineLine ? <span class="outline">{line}</span> : line}
+        </>
+      ))}
+    </h1>
+    {release.info && <p class="info">{release.info}</p>}
+
+    {(release.sideA || release.sideB) && (
+      <div class="tracklist">
+        {release.sideA && (
+          <div class="side">
+            <h2>Side A</h2>
+            <ol>
+              {release.sideA.map((track) => (
+                <li>
+                  <span class="track-title">{track.title}</span>
+                  <span class="track-duration">{track.duration}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+        {release.sideB && (
+          <div class="side">
+            <h2>Side B</h2>
+            <ol>
+              {release.sideB.map((track) => (
+                <li>
+                  <span class="track-title">{track.title}</span>
+                  <span class="track-duration">{track.duration}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+      </div>
+    )}
+
+    {release.tracklist && (
+      <div class="side tracklist-single">
+        <ol>
+          {release.tracklist.map((track) => (
+            <li>
+              <span class="track-title">{track.title}</span>
+              <span class="track-duration">{track.duration}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    )}
+
+    {release.credits && (
+      <div class="credits">
+        {release.credits.map((group) => (
+          <div class="credit-group">
+            {group.map((credit) => (
+              <p>
+                <span class="credit-label">{credit.label}:</span>{" "}
+                {credit.url ? (
+                  <a
+                    href={credit.url.startsWith("http") ? credit.url : path(lang, credit.url)}
+                    target={credit.url.startsWith("http") ? "_blank" : undefined}
+                    rel={credit.url.startsWith("http") ? "noopener noreferrer" : undefined}
+                  >
+                    {credit.value}
+                  </a>
+                ) : (
+                  credit.value
+                )}
+              </p>
+            ))}
+          </div>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <Footer lang={lang} />
+</BaseLayout>

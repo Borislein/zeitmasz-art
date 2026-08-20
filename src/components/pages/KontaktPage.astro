@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../Header.astro";
+import Footer from "../Footer.astro";
+import { t, type Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const altHref = lang === "de" ? "/en/kontakt" : "/kontakt";
+---
+
+<BaseLayout title="Kontakt — Zeitmasz" lang={lang}>
+  <Header lang={lang} altHref={altHref} />
+
+  <section class="kontakt">
+    <h2>{t(lang, "kontakt.heading")}</h2>
+    <a href="mailto:boris@zeitmasz.com" class="mail">boris@zeitmasz.com</a>
+  </section>
+
+  <Footer lang={lang} />
+</BaseLayout>

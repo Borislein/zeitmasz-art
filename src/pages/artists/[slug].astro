@@ -1,0 +1,15 @@
+---
+import ArtistDetailPage from "../../components/pages/ArtistDetailPage.astro";
+import { artists } from "../../data/artists";
+
+export function getStaticPaths() {
+  return artists.map((artist) => ({
+    params: { slug: artist.slug },
+    props: { artist },
+  }));
+}
+
+const { artist } = Astro.props;
+---
+
+<ArtistDetailPage lang="de" artist={artist} />

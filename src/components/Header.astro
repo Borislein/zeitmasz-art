@@ -1,0 +1,65 @@
+---
+import { t, path, type Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+  altHref?: string;
+}
+
+const { lang, altHref } = Astro.props;
+
+const navLinks = [
+  { label: t(lang, "nav.artists"), href: path(lang, "/artists/owldom") },
+  { label: t(lang, "nav.releases"), href: path(lang, "/#katalog") },
+  { label: t(lang, "nav.kontakt"), href: path(lang, "/kontakt") },
+];
+
+const resolvedAltHref = altHref ?? (lang === "de" ? "/en" : "/");
+---
+
+<header>
+  <div class="header-top">
+    <div class="logo"><a href={path(lang, "/")}>ZEITMASZ</a></div>
+    <div class="nav-controls">
+      <button
+        class="control-btn"
+        id="theme-toggle"
+        type="button"
+        data-bright={t(lang, "theme.bright")}
+        data-dark={t(lang, "theme.dark")}
+      >
+        {t(lang, "theme.bright")}
+      </button>
+      <a class="control-btn" href={resolvedAltHref}>{lang === "de" ? "EN" : "DE"}</a>
+    </div>
+  </div>
+  <nav>
+    {navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+  </nav>
+</header>
+
+<script is:inline>
+  (function () {
+    const btn = document.getElementById("theme-toggle");
+    if (!btn) return;
+
+    function updateLabel() {
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      btn.textContent = isLight ? btn.dataset.dark : btn.dataset.bright;
+    }
+
+    btn.addEventListener("click", function () {
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      if (isLight) {
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+      }
+      updateLabel();
+    });
+
+    updateLabel();
+  })();
+</script>

@@ -1,0 +1,25 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  # Schwellenwerte, unterhalb derer der Deploy-Log eine Warnung zeigt.
+  # Performance bewusst niedriger angesetzt (Hintergrundbild-Textur
+  # kann den Score drücken) — kann später hochgesetzt werden, sobald
+  # optimiert wurde.
+  [plugins.inputs.thresholds]
+    performance = 0.7
+    accessibility = 0.9
+    best-practices = 0.9
+    seo = 0.9
+
+  # Report wird zusätzlich als HTML-Datei unter diesem Pfad abgelegt,
+  # falls du ihn dir außerhalb vom Netlify-UI ansehen willst.
+  [plugins.inputs.audits]
+    output_path = "reports/lighthouse.html"
+
+# Kein fail_deploy_on_score_thresholds gesetzt — das Plugin reportet nur,
+# blockiert aber keine Deploys, auch wenn Werte drunter liegen. Das lässt
+# sich später aktivieren, sobald ihr wisst, welche Scores realistisch sind.

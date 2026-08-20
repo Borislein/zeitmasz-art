@@ -1,0 +1,17 @@
+---
+import ReleaseDetailPage from "../../../components/pages/ReleaseDetailPage.astro";
+import { releases } from "../../../data/releases";
+
+export function getStaticPaths() {
+  return releases
+    .filter((release) => release.slug)
+    .map((release) => ({
+      params: { slug: release.slug },
+      props: { release },
+    }));
+}
+
+const { release } = Astro.props;
+---
+
+<ReleaseDetailPage lang="en" release={release} />
