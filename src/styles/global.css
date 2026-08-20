@@ -160,6 +160,11 @@ nav a {
   color: var(--clr-body-grey);
   line-height: 1.6;
   max-width: 700px;
+  margin-bottom: 0;
+}
+
+.rip p:first-child {
+  margin-bottom: 20px;
 }
 
 .rip a {
