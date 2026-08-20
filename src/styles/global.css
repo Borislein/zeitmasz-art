@@ -194,15 +194,15 @@ nav a {
 }
 
 section.releases {
-  padding: 80px 64px;
+  padding: 24px 64px 80px;
 }
 
 section.releases h2 {
   font-family: var(--ff-heading);
   font-weight: 700;
-  font-size: 40px;
+  font-size: 28px;
   color: var(--clr-fg);
-  margin-bottom: 48px;
+  margin-bottom: 24px;
   text-transform: uppercase;
 }
 
