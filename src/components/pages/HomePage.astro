@@ -35,6 +35,21 @@ const altHref = lang === "de" ? "/en" : "/";
     <p>{t(lang, "rip.details")}</p>
   </section>
 
+  <section style="padding: 28px 64px; max-width: 700px;">
+    <div id="mlb2-45042848" class="ml-form-embedContainer">
+      <form action="https://assets.mailerlite.com/jsonp/1402895/forms/196339618632697754/subscribe" method="post" target="_blank">
+        <h4 style="font-family: var(--ff-heading); font-size: 20px; color: var(--clr-fg); margin: 0 0 20px 0;">Newsletter</h4>
+        <div style="display: flex; gap: 10px;">
+          <input type="email" name="fields[email]" placeholder="Email" required style="flex: 1; padding: 10px; border: 1px solid var(--clr-border); border-radius: 4px; background: var(--clr-bg); color: var(--clr-fg);">
+          <button type="submit" style="padding: 10px 20px; border: 1px solid var(--clr-fg); border-radius: 4px; background: transparent; color: var(--clr-fg); cursor: pointer; font-weight: 600;">Subscribe</button>
+        </div>
+        <input type="hidden" name="ml-submit" value="1">
+        <input type="hidden" name="anticsrf" value="true">
+      </form>
+    </div>
+    <script src="https://groot.mailerlite.com/js/w/webforms.min.js" async></script>
+  </section>
+
   <section class="releases" id="katalog">
     <h2>{t(lang, "katalog.heading")}</h2>
     <div class="grid">
