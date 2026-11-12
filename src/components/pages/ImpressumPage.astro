@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../Header.astro";
+import Footer from "../Footer.astro";
+import type { Lang } from "../../i18n/ui";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const de = lang === "de";
+const altHref = de ? "/en/impressum" : "/impressum";
+---
+
+<BaseLayout title={de ? "Impressum — Zeitmasz" : "Imprint — Zeitmasz"} lang={lang}>
+  <Header lang={lang} altHref={altHref} />
+  <section class="kontakt legal">
+    <h2>{de ? "Impressum" : "Imprint"}</h2>
+    <p><strong>{de ? "Angaben gemäß § 5 DDG" : "Information pursuant to § 5 DDG"}</strong></p>
+    <p>{de ? "Boris Schmidt (V.i.S.d.P.)" : "Boris Schmidt (responsible for content)"}</p>
+    <p>Zeitmasz<br />c/o MDC#2311<br />Welserstraße 3<br />87463 Dietmannsried<br />{de ? "Deutschland" : "Germany"}</p>
+    <p><strong>{de ? "Kontakt" : "Contact"}</strong><br />{de ? "E-Mail" : "Email"}: <a href="mailto:boris@zeitmasz.com">boris@zeitmasz.com</a></p>
+  </section>
+  <Footer lang={lang} />
+</BaseLayout>

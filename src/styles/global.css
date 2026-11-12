@@ -532,3 +532,18 @@ footer .small {
     gap: 20px;
   }
 }
+
+/* Impressum / Datenschutz */
+.legal { max-width: 760px; }
+.legal h3 { font-family: var(--ff-heading); font-weight: 700; font-size: 20px; color: var(--clr-fg); margin: 32px 0 8px; }
+.legal p { color: var(--clr-fg); line-height: 1.6; margin-bottom: 16px; }
+.legal a { color: var(--clr-fg); }
+
+/* Footer-Links */
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.footer-links a { color: inherit; }
+.footer-links a:hover { color: var(--clr-fg); }
+
+/* Links auf der Release-Seite */
+.release-links { list-style: none; display: flex; flex-wrap: wrap; gap: 12px 28px; margin: -32px 0 56px; padding: 0; }
+.release-links a { font-family: var(--ff-heading); font-weight: 600; font-size: 18px; color: var(--clr-fg); }

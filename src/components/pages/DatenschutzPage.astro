@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../Header.astro";
+import Footer from "../Footer.astro";
+import type { Lang } from "../../i18n/ui";
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const de = lang === "de";
+const altHref = de ? "/en/datenschutz" : "/datenschutz";
+---
+
+<BaseLayout title={de ? "Datenschutz — Zeitmasz" : "Privacy — Zeitmasz"} lang={lang}>
+  <Header lang={lang} altHref={altHref} />
+  <section class="kontakt legal">
+  {de ? (
+    <>
+      <h2>Datenschutzerklärung</h2>
+      <h3>Verantwortlicher</h3>
+      <p>Boris Schmidt, Zeitmasz, c/o MDC#2311, Welserstraße 3, 87463 Dietmannsried, Deutschland<br />E-Mail: <a href="mailto:boris@zeitmasz.com">boris@zeitmasz.com</a></p>
+      <h3>Kurz gesagt</h3>
+      <p>Diese Website setzt keine Cookies und nutzt keine Analyse-Tools. Schriften werden vom eigenen Server geladen. Daten fallen nur beim Hosting, beim Newsletter-Formular und bei E-Mail-Kontakt an.</p>
+      <h3>Hosting und Server-Logs</h3>
+      <p>Die Website wird bei Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, USA gehostet. Beim Aufruf verarbeitet Netlify technisch notwendige Daten wie IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Referrer und Browser-Kennung, um die Seite auszuliefern und vor Missbrauch zu schützen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren, funktionierenden Angebot). Eine Übermittlung in die USA erfolgt auf Grundlage eines Auftragsverarbeitungsvertrags mit EU-Standardvertragsklauseln bzw. des EU-US Data Privacy Framework.</p>
+      <h3>Newsletter (MailerLite)</h3>
+      <p>Für den Newsletter nutzen wir MailerLite (UAB „MailerLite“, J. Basanavičiaus 15, 03108 Vilnius, Litauen). Beim Laden der Startseite wird ein Skript von MailerLite geladen; dabei wird u. a. deine IP-Adresse an MailerLite übertragen (Art. 6 Abs. 1 lit. f DSGVO). Wenn du dich einträgst, speichert MailerLite deine E-Mail-Adresse, Zeitpunkt der Anmeldung und Öffnungs-/Klickdaten, um den Newsletter zu versenden. Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die du jederzeit über den Abmeldelink in jeder Mail widerrufen kannst. Details: <a href="https://www.mailerlite.com/legal/privacy-policy" target="_blank" rel="noopener">mailerlite.com/legal/privacy-policy</a>.</p>
+      <h3>Hell-/Dunkel-Einstellung</h3>
+      <p>Deine Wahl zwischen hellem und dunklem Design wird nur lokal in deinem Browser (localStorage) gespeichert und nicht an uns übertragen.</p>
+      <h3>Externe Links</h3>
+      <p>Links zu anderen Websites sind einfache Links. Daten werden an diese Anbieter erst übertragen, wenn du einen Link anklickst; dann gelten deren Datenschutzbestimmungen.</p>
+      <h3>Kontakt per E-Mail</h3>
+      <p>Wenn du uns schreibst, verarbeiten wir deine Angaben zur Bearbeitung der Anfrage (Art. 6 Abs. 1 lit. b bzw. f DSGVO) und löschen sie, wenn sie nicht mehr gebraucht werden und keine Aufbewahrungspflichten bestehen.</p>
+      <h3>Deine Rechte</h3>
+      <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 15–21 DSGVO). Eine Einwilligung kannst du jederzeit für die Zukunft widerrufen. Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren, z. B. beim Bayerischen Landesamt für Datenschutzaufsicht.</p>
+      <p>Stand: November 2026</p>
+    </>
+  ) : (
+    <>
+      <h2>Privacy Policy</h2>
+      <h3>Controller</h3>
+      <p>Boris Schmidt, Zeitmasz, c/o MDC#2311, Welserstraße 3, 87463 Dietmannsried, Germany<br />Email: <a href="mailto:boris@zeitmasz.com">boris@zeitmasz.com</a></p>
+      <h3>In short</h3>
+      <p>This website sets no cookies and uses no analytics. Fonts are served from our own server. Data is only processed for hosting, the newsletter form and email contact.</p>
+      <h3>Hosting and server logs</h3>
+      <p>This website is hosted by Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, USA. When you visit, Netlify processes technically necessary data such as IP address, date and time, requested page, referrer and browser identifier in order to deliver the site and protect it against abuse. Legal basis: Art. 6(1)(f) GDPR (legitimate interest in a secure, working website). Transfers to the USA are based on a data processing agreement with EU Standard Contractual Clauses and/or the EU-US Data Privacy Framework.</p>
+      <h3>Newsletter (MailerLite)</h3>
+      <p>Our newsletter is run with MailerLite (UAB "MailerLite", J. Basanavičiaus 15, 03108 Vilnius, Lithuania). When the home page loads, a script from MailerLite is loaded, transmitting your IP address among other data to MailerLite (Art. 6(1)(f) GDPR). If you sign up, MailerLite stores your email address, time of sign-up and open/click data in order to send the newsletter. Legal basis: your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time via the unsubscribe link in every email. Details: <a href="https://www.mailerlite.com/legal/privacy-policy" target="_blank" rel="noopener">mailerlite.com/legal/privacy-policy</a>.</p>
+      <h3>Light/dark setting</h3>
+      <p>Your choice of light or dark design is stored only locally in your browser (localStorage) and is not sent to us.</p>
+      <h3>External links</h3>
+      <p>Links to other websites are plain links. No data is sent to these providers until you click a link; their privacy policies then apply.</p>
+      <h3>Contact by email</h3>
+      <p>If you email us, we process your details to handle your request (Art. 6(1)(b) or (f) GDPR) and delete them once they are no longer needed and no retention obligations apply.</p>
+      <h3>Your rights</h3>
+      <p>You have the right of access, rectification, erasure, restriction of processing, data portability and objection to processing based on legitimate interests (Art. 15–21 GDPR). You can withdraw consent at any time with effect for the future. You may also lodge a complaint with a data protection supervisory authority.</p>
+      <p>Last updated: November 2026</p>
+    </>
+  )}
+  </section>
+  <Footer lang={lang} />
+</BaseLayout>

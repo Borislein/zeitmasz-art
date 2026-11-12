@@ -19,6 +19,7 @@ export interface Release {
   sideB?: Track[];
   tracklist?: Track[];
   credits?: Credit[][];
+  links?: { label: string; url: string }[];
 }
 
 export const releases: Release[] = [
@@ -26,17 +27,22 @@ export const releases: Release[] = [
     catNum: "ZTMSZ001",
     slug: "owldom-meets-sensational-in-the-twilight-zone",
     title: "Owldom Meets Sensational\nIn The Twilight Zone",
-    info: "Release Date: 4. September (tbc)",
+    info: "Released 3 November 2026 · Cassette & CD: 23 November 2026",
+    links: [
+      { label: "Listen everywhere", url: "https://push.fm/fl/krzp7acb" },
+      { label: "Bandcamp", url: "https://owldom.bandcamp.com" },
+      { label: "Press kit", url: "https://owldom.org" },
+    ],
     sideA: [
-      { title: "No Shade", duration: "3:31" },
-      { title: "Pester", duration: "3:56" },
-      { title: "Phalanx", duration: "7:26" },
-      { title: "Ghosting", duration: "5:11" },
+      { title: "No Shade", duration: "3:33" },
+      { title: "Pester", duration: "3:58" },
+      { title: "Phalanx", duration: "7:31" },
+      { title: "Ghosting", duration: "5:14" },
     ],
     sideB: [
-      { title: "You", duration: "6:50" },
-      { title: "Unsub", duration: "6:06" },
-      { title: "Newfangled", duration: "7:10" },
+      { title: "You", duration: "6:54" },
+      { title: "Unsub", duration: "6:01" },
+      { title: "Newfangled", duration: "7:00" },
     ],
     credits: [
       [
@@ -76,15 +82,15 @@ export const releases: Release[] = [
     outlineLine: 0,
     info: "Forthcoming",
     sideA: [
-      { title: "No Shade", duration: "3:31" },
-      { title: "Pester", duration: "3:56" },
-      { title: "Phalanx", duration: "7:26" },
-      { title: "Ghosting", duration: "5:11" },
+      { title: "No Shade", duration: "3:33" },
+      { title: "Pester", duration: "3:58" },
+      { title: "Phalanx", duration: "7:31" },
+      { title: "Ghosting", duration: "5:14" },
     ],
     sideB: [
-      { title: "You", duration: "6:50" },
-      { title: "Unsub", duration: "6:06" },
-      { title: "Newfangled", duration: "7:10" },
+      { title: "You", duration: "6:54" },
+      { title: "Unsub", duration: "6:01" },
+      { title: "Newfangled", duration: "7:00" },
     ],
     credits: [
       [{ label: "Music", value: "Owldom", url: "/artists/owldom" }],

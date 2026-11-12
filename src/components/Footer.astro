@@ -1,5 +1,5 @@
 ---
-import { t, type Lang } from "../i18n/ui";
+import { t, path, type Lang } from "../i18n/ui";
 
 interface Props {
   lang: Lang;
@@ -10,5 +10,5 @@ const { lang } = Astro.props;
 
 <footer>
   <div class="small">{t(lang, "footer.tagline")}</div>
-  <div class="small">zeitmasz.art</div>
+  <div class="small footer-links"><a href={path(lang, "/impressum")}>{t(lang, "footer.imprint")}</a><a href={path(lang, "/datenschutz")}>{t(lang, "footer.privacy")}</a><span>zeitmasz.art</span></div>
 </footer>

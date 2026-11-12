@@ -30,6 +30,11 @@ const altHref = lang === "de" ? `/en/releases/${release.slug}` : `/releases/${re
       ))}
     </h1>
     {release.info && <p class="info">{release.info}</p>}
+    {release.links && (
+      <ul class="release-links">
+        {release.links.map((l) => <li><a href={l.url} target="_blank" rel="noopener">{l.label}</a></li>)}
+      </ul>
+    )}
 
     {(release.sideA || release.sideB) && (
       <div class="tracklist">

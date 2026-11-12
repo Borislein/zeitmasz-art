@@ -13,7 +13,9 @@ export const ui = {
     "theme.dark": "Dunkel",
     "rip.text": "Wir trauern um Sensational, der am 2. August 2026 verstorben ist.",
     "rip.linkText": "Lies Spectres Nachruf →",
-    "rip.details": "Zeitmasz war die letzte Agentur und das letzte Label Sensationals. Das gemeinsame Album mit Owldom wird in Kürze erscheinen.",
+    "rip.details": "Zeitmasz war die letzte Agentur und das letzte Label Sensationals. Das gemeinsame Album mit Owldom ist am 3. November erschienen.",
+    "footer.imprint": "Impressum",
+    "footer.privacy": "Datenschutz",
   },
   en: {
     "nav.artists": "Artists",
@@ -27,7 +29,9 @@ export const ui = {
     "theme.dark": "Dark",
     "rip.text": "We mourn Sensational, who passed away on August 2, 2026.",
     "rip.linkText": "Read Spectre's tribute →",
-    "rip.details": "Zeitmasz was Sensational's last agency and label. The collaborative album with Owldom will be released shortly.",
+    "rip.details": "Zeitmasz was Sensational's last agency and label. The collaborative album with Owldom was released on November 3.",
+    "footer.imprint": "Imprint",
+    "footer.privacy": "Privacy",
   },
 } as const;
 
