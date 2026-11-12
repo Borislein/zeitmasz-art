@@ -5,12 +5,15 @@ import type { Lang } from "../i18n/ui";
 interface Props {
   title?: string;
   lang?: Lang;
+  description?: string;
 }
 
 const {
   title = "Zeitmasz — Label und Agentur für visionäre Künstler",
   lang = "de",
+  description,
 } = Astro.props;
+const desc = description ?? (lang === "de" ? "Zeitmasz – Label und Agentur für visionäre Künstler aus Berlin." : "Zeitmasz – label and agency for visionary artists, based in Berlin.");
 ---
 
 <html lang={lang}>
@@ -21,6 +24,7 @@ const {
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>{title}</title>
+    <meta name="description" content={desc} />
     <link rel="stylesheet" href="/fonts/fonts.css" />
     <script is:inline>
       if (localStorage.getItem("theme") === "light") {

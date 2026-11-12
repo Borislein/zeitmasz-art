@@ -16,7 +16,7 @@ const outlineLine = release.outlineLine ?? 1;
 const altHref = lang === "de" ? `/en/releases/${release.slug}` : `/releases/${release.slug}`;
 ---
 
-<BaseLayout title={`${plainTitle} — Zeitmasz`} lang={lang}>
+<BaseLayout title={`${plainTitle} — Zeitmasz`} lang={lang} description={`${plainTitle}${release.info ? ` – ${release.info}` : ""}. Zeitmasz ${release.catNum}.`}>
   <Header lang={lang} altHref={altHref} />
 
   <section class="release-detail">
